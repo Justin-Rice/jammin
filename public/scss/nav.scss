@@ -1,0 +1,35 @@
+nav{
+    height: 70px;
+    width: 100%;
+    background-color: $yellow;
+
+    .logo{
+        position:absolute;
+       // align-items: center;
+        font-family: Lato;
+        font-size: 40px;
+        width: 180px;
+       // background-color: blue;
+        //top: 20px;
+
+
+    }
+
+    .links{
+        position: absolute;
+        right: 40px;
+        top: 15px;
+        min-width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        a{
+            text-decoration: none;
+            font-size: 20px;
+            font-family: Gills;
+            color: black;
+        }
+    }
+
+}

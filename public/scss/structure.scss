@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+  height: 100%;
+  }
+  h1, h2, h3, h4, h5, h5, h6, p{
+    margin-bottom:16px;
+  }
+
+  @font-face {
+    font-family:'Lato' ;
+    src: url(../fonts/Lato-Regular.ttf);
+} 
+@font-face {
+    font-family:'Gills' ;
+    src: url(../fonts/GillSansUltraBold.ttf);
+}
+
+$red: #EE5353;
+$orange: #EE7A53;
+$yellow: #FFEA96;
