@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h5, h6, p {
   src: url(../fonts/GillSansUltraBold.ttf);
 }
 nav {
-  height: 70px;
+  height: 50px;
   width: 100%;
   background-color: #FFEA96;
 }
@@ -31,10 +31,11 @@ nav .logo {
   font-family: Lato;
   font-size: 40px;
   width: 180px;
+  left: 10px;
 }
 nav .links {
   position: absolute;
-  right: 40px;
+  right: 10px;
   top: 15px;
   min-width: 350px;
   display: -webkit-box;
@@ -52,4 +53,311 @@ nav .links a {
   font-size: 20px;
   font-family: Gills;
   color: black;
+}
+
+footer {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  color: #707070;
+  position: relative;
+  bottom: 30px;
+}
+
+.home {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  height: calc(100vh - 50px);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(238, 122, 83, 0.75)), to(rgba(238, 122, 83, 0.75))), url("../img/jammin-home-hero.jpg");
+  background-image: linear-gradient(to right, rgba(238, 122, 83, 0.75), rgba(238, 122, 83, 0.75)), url("../img/jammin-home-hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.home .content {
+  height: 700px;
+  width: 700px;
+  margin: 50px auto;
+  background-color: white;
+  border-radius: 40px;
+  border: solid #FFEA96 8px;
+}
+
+.login {
+  width: 100%;
+  height: calc(100vh - 50px);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(238, 122, 83, 0.75)), to(rgba(238, 122, 83, 0.75))), url("../img/jammin-home-hero.jpg");
+  background-image: linear-gradient(to right, rgba(238, 122, 83, 0.75), rgba(238, 122, 83, 0.75)), url("../img/jammin-home-hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -o-object-fit: fill;
+     object-fit: fill;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+.login .form__flex {
+  margin: 0 auto;
+  width: 790px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.login .form__flex .form__holder {
+  background-color: #EE5353;
+  border: solid #FFEA96 8px;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 350px;
+  min-height: 300px;
+}
+.login .form__flex .form__holder.--signup {
+  height: 370px;
+}
+.login .form__flex .form__holder .head__holder {
+  position: relative;
+  top: 20px;
+}
+.login .form__flex .form__holder .head__holder p.head {
+  font-family: Gills;
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+}
+.login .form__flex .form__holder .input__holder {
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.login .form__flex .form__holder .input__holder button {
+  border: none;
+}
+.login .form__flex .form__holder .input__holder.--signup {
+  height: 300px;
+}
+.login .form__flex .form__holder .input__holder input {
+  margin-top: 20px;
+  background-color: transparent;
+  outline: none;
+  width: 200px;
+  height: 30px;
+  border: none;
+  font-size: 16px;
+  border-bottom: 2px solid black;
+}
+.login .form__flex .form__holder .input__holder input::-webkit-input-placeholder {
+  font-family: Lato;
+  font-size: 16px;
+  color: black;
+  position: relative;
+  bottom: -5px;
+}
+.login .form__flex .form__holder .input__holder input::-moz-placeholder {
+  font-family: Lato;
+  font-size: 16px;
+  color: black;
+  position: relative;
+  bottom: -5px;
+}
+.login .form__flex .form__holder .input__holder input:-ms-input-placeholder {
+  font-family: Lato;
+  font-size: 16px;
+  color: black;
+  position: relative;
+  bottom: -5px;
+}
+.login .form__flex .form__holder .input__holder input::-ms-input-placeholder {
+  font-family: Lato;
+  font-size: 16px;
+  color: black;
+  position: relative;
+  bottom: -5px;
+}
+.login .form__flex .form__holder .input__holder input::placeholder {
+  font-family: Lato;
+  font-size: 16px;
+  color: black;
+  position: relative;
+  bottom: -5px;
+}
+.login .form__flex .form__holder .input__holder .button {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #FFEA96;
+  font-family: Lato;
+  width: 170px;
+  height: 42px;
+  border-radius: 40px 40px;
+  line-height: 40px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  font-size: 18px;
+}
+.login .form__flex .form__holder #googleLogIn {
+  margin-top: -20px;
+}
+
+@media screen and (max-width: 768px) {
+  .login {
+    height: 1060px;
+  }
+  .login .form__flex {
+    height: 850px;
+    width: 300px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+@media screen and (max-width: 565px) {
+  .login {
+    height: 1100px;
+  }
+  .login .form__flex {
+    height: 750px;
+    width: 300px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+.recipes-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  height: auto;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(238, 122, 83, 0.75)), to(rgba(238, 122, 83, 0.75))), url("../img/jammin-hero-recipe.jpg");
+  background-image: linear-gradient(to right, rgba(238, 122, 83, 0.75), rgba(238, 122, 83, 0.75)), url("../img/jammin-hero-recipe.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -o-object-fit: fill;
+     object-fit: fill;
+  background-attachment: fixed;
+}
+.recipes-page .filters {
+  position: relative;
+  top: -41px;
+  width: 180px;
+  background-color: #EE5353;
+  border: solid 4px #FFEA96;
+  border-top: none;
+  border-left: none;
+}
+.recipes-page .filters__container {
+  margin: 0 auto;
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.recipes-page .filters__container__head {
+  text-align: center;
+  font-size: 30px;
+  font-family: Gills;
+}
+.recipes-page .filters__container__section {
+  margin-top: 25px;
+  text-align: center;
+}
+.recipes-page .filters__container__section__head {
+  margin-bottom: 10px;
+  font-family: Gills;
+  font-size: 20px;
+}
+.recipes-page .filters__container__section__button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  background-color: #FFEA96;
+  font-family: Lato;
+  width: 110px;
+  height: 42px;
+  border-radius: 40px 40px;
+  line-height: 40px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  font-size: 18px;
+}
+.recipes-page .filters__container__section__button.--submit {
+  width: 140px;
+}
+.recipes-page .filters__container__section__button.--selected {
+  background-color: blue;
+}
+.recipes-page .recipes {
+  height: 1000px;
+  width: 800px;
+  margin: 0 auto;
+  background-color: aquamarine;
 }

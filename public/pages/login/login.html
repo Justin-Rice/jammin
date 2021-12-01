@@ -1,0 +1,31 @@
+<div class="login">
+  <div class="form__flex">
+    <div class="form__holder">
+      <div class="head__holder">
+        <p class="head">Log In</p>
+      </div>
+      <div class="input__holder">
+        <input id="email-li" type="text" placeholder="Email Address" />
+        <input id="pw-li" type="password" placeholder="Password" />
+        <button onclick="logInUser()" class="button" id="logIn">Login</button>
+        <button onclick="logInWithGoogle()" class="button" id="googleLogIn">
+          Login with Google
+        </button>
+      </div>
+    </div>
+    <div class="form__holder --signup">
+      <div class="head__holder">
+        <p class="head">Create Account</p>
+      </div>
+      <div class="input__holder --signup">
+        <input id="uName" type="text" placeholder="Username" />
+        <input id="email" type="text" placeholder="Email Address" />
+        <input id="pw" type="password" placeholder="Password" />
+
+        <button onclick="createUser()" class="button" id="signUp">
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+.login{
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-image: linear-gradient(
+      to right,  
+        rgba(238, 122, 83, 0.75),
+        rgba(238, 122, 83, 0.75)
+      ),
+    url("../img/jammin-home-hero.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    object-fit: fill;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .form__flex{
+        margin: 0 auto;
+        width: 790px;
+        //background-color: yellow;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        .form__holder{
+            //height: 300px;
+            background-color: $red;
+            border: solid $yellow 8px;
+            border-radius: 30px;
+           // width: 350px;
+
+
+            &.--signup{
+            height: 370px;
+
+            }
+            display: flex;
+            align-items: left;
+            justify-content: space-evenly;
+            flex-direction: column;
+            width: 350px;
+           // background-color: $green;
+            min-height: 300px;
+
+            .head__holder{
+                position: relative;
+                top: 20px;
+           
+            p.head{
+                font-family:Gills;
+                font-size: 30px;
+                text-align: center;
+                position: relative;
+                //padding-bottom: 10px;
+               // left: 0;
+            }
+            }
+            .input__holder{
+                button{
+                    border: none;
+
+                }
+                height: 300px;
+                //background-color: red;
+                 display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: column;
+                &.--signup{
+                    height: 300px;
+
+                }
+            input{
+                margin-top: 20px;
+                
+                background-color: transparent;
+                outline: none;
+                width: 200px;
+                height: 30px;
+                border: none;
+                font-size: 16px;
+               // padding-bottom: 40px;
+                border-bottom: 2px solid black;
+                
+            }
+            input::placeholder{
+                //line-height: 70px;
+                font-family: Lato;
+                font-size: 16px;
+                color: black;
+                position: relative;
+                bottom: -5px;
+                
+
+
+            }
+            
+            .button{
+                margin-top: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            background-color: $yellow;
+            font-family: Lato;
+            width: 170px;
+            height: 42px;
+           border-radius: 40px 40px;
+           line-height: 40px;
+           box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;  
+           font-size: 18px;
+            }
+        }
+        #googleLogIn{
+            margin-top: -20px;
+        }
+        }
+
+    }
+}
+
+//850px
+
+@media screen and (max-width: 768px) {
+    .login{
+        height: 1060px;
+        .form__flex{
+            height: 850px;
+            width: 300px;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+
+}
+
+@media screen and (max-width: 565px) {
+    .login{
+        height: 1100px;
+        .form__flex{
+            height: 750px;
+            width: 300px;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+
+}
