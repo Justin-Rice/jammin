@@ -1,0 +1,61 @@
+<div class="create-page">
+  <div class="create">
+    <div class="form">
+      <h1>Create Recipe</h1>
+      <div class="general">
+        <!-- <div class="attach" id="file">attach</div> -->
+        <input id="recipe-name" type="text" placeholder="Recipe Name" />
+
+        <!-- <label for="createfile" class="file-upload"> -->
+        <!-- Upload File -->
+        <input id="createfile" type="file" placeholder="Upload Image" />
+        <!-- </label> -->
+        <!-- <input id="fake" placeholder="Recipe Image" disabled /> -->
+
+        <select id="recipe-type" name="dropdown">
+          <option value="" disabled selected>Recipe Type</option>
+          <option>Grilling</option>
+          <option>Baking</option>
+          <option>General</option>
+        </select>
+        <select id="recipe-skill" name="dropdown">
+          <option value="" disabled selected>Recipe Difficulty</option>
+          <option>Simple</option>
+          <option>Advanced</option>
+          <option>Professional</option>
+        </select>
+        <select id="recipe-time" name="dropdown">
+          <option value="" disabled selected>Recipe Prep Time</option>
+          <option>< 1 hour</option>
+          <option>> 1 hour</option>
+        </select>
+        <textarea
+          id="recipe-desc"
+          type="text"
+          placeholder="Recipe Description"
+        ></textarea>
+      </div>
+      <div class="ingredients">
+        <div class="title">Enter Ingredients</div>
+        <input
+          class="addIng"
+          id="ind1"
+          type="text"
+          placeholder="Ingredient #1"
+        />
+        <div class="add" id="ing" onclick="addIngred()">+</div>
+      </div>
+      <div class="instructions">
+        <div class="title">Enter Instructions</div>
+        <input
+          class="addIns"
+          id="ins1"
+          type="text"
+          placeholder="Instruction #1"
+        />
+        <div class="add" id="ins" onclick="addInstruct()">+</div>
+      </div>
+      <div onclick="createRecipe()" class="create-recipe">Create Recipe</div>
+    </div>
+  </div>
+</div>

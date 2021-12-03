@@ -1,0 +1,233 @@
+.create-page{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+     min-height: calc(100vh - 50px);
+     background-image: linear-gradient(
+       to right,  
+         rgba(238, 122, 83, 0.75),
+         rgba(238, 122, 83, 0.75)
+       ),
+     url("../img/jammin-hero-recipe.jpg");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     object-fit: fill;
+     background-attachment: fixed;
+     overflow: hidden;
+.create {
+    width: 900px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    margin-bottom: 49px;
+    //min-height: 100vh;
+    background-color:white;
+    margin-top: 60px;
+    border: solid 8px $yellow;
+    border-radius: 30px;
+    h1{
+        font-family: Gills;
+        font-size: 35px;
+        font-weight: 100;
+        position: relative;
+        top: 50px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    font-family: Lato;
+    font-size: 20px;
+
+    
+
+    .form{
+        position: relative;
+        .create-recipe{
+            margin: 0 auto;
+            text-align: center;
+            background-color: $yellow;
+            font-family: lato;
+            width: 250px;
+            height: 52px;
+           border-radius: 40px 40px;
+           line-height: 50px;
+           box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;  
+           font-size: 25px;
+           margin-top: 100px;
+        }
+
+        .add{
+            height: 38px;
+            width: 38px;
+            border-radius: 20px;
+            color: black;
+            background-color: $yellow;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            cursor: pointer;
+            position: absolute;
+            right: 70px;
+            bottom: -60px;
+           
+
+        
+        }
+        .attach{
+            height: 38px;
+            width: 110px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            cursor: pointer;
+            font-family: Caveat;
+            top: 67px;
+            right: 5px;
+
+            background-color: $yellow;
+            position: absolute;
+
+
+
+        }
+        select{
+            width: 750px;
+            background-color: transparent;
+            outline: none;
+            border:none;
+            border-bottom: black solid 2px;
+            height: 30px;
+            font-family: Lato;
+            font-size: 20px;
+            margin-top: 80px;
+            color: black;
+        }
+        textarea{
+            width: 750px;
+            background-color: transparent;
+           // outline: none;
+            //border:none;
+           // border-bottom: black solid 2px;
+            height: 100px;
+            font-family: Lato;
+            font-size: 20px;
+            margin-top: 80px;
+            color: black;
+        }
+
+        input{
+            width: 750px;
+            background-color: transparent;
+            outline: none;
+            border:none;
+            border-bottom: black solid 2px;
+            height: 30px;
+            font-family: Lato;
+            font-size: 20px;
+            margin-top: 80px;
+            color: black;
+            
+           
+        }
+        .title{
+            width: 100%;
+            position: relative;
+            top: 40px;
+            font-family: Gills;
+            left: 70px;
+         }
+
+        .general{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+           // background-color: aqua;
+
+           
+        }
+        .ingredients{
+            margin-top: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+           // background-color: aqua;
+            position: relative;
+           
+        }
+
+        .instructions{
+            position: relative;
+            margin-top: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+           // background-color: aqua;
+        }     
+    }  
+}
+
+input[type="file"] {
+    //display: none;
+    
+}
+.file-upload {
+    //border: 1px solid #ccc;
+    display: block;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: relative;
+    top: 98px;
+    left: 320px;
+    background-color: $yellow;
+    border-radius: 14px;
+}
+
+@media screen and (max-width: 900px) {
+    .create{
+
+        width: 500px;
+
+    .general, .ingredients, .instructions{
+
+        input, select, textarea{
+            width: 300px;
+            
+        }
+    }
+
+    }
+
+
+
+
+
+}
+}
+
+
+
+@media screen and (max-width: 550px) {
+    .create{
+
+        width: 300px;
+
+    .general, .ingredients, .instructions{
+
+        input, select{
+            width: 300px;
+        }
+    }
+
+    }
+
+
+
+
+
+
+}

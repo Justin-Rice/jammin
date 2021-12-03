@@ -35,7 +35,7 @@ nav .logo {
 }
 nav .links {
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 15px;
   min-width: 350px;
   display: -webkit-box;
@@ -53,11 +53,20 @@ nav .links a {
   font-size: 20px;
   font-family: Gills;
   color: black;
+  margin-left: 20px;
 }
 nav div#logOut {
   display: none;
 }
+nav div#create {
+  display: none;
+}
 
+@media screen and (max-width: 700px) {
+  nav .logo {
+    display: none;
+  }
+}
 footer {
   margin: 0 auto;
   display: -webkit-box;
@@ -473,7 +482,9 @@ footer {
   width: 400px;
   margin-top: 60px;
   margin-left: 25px;
+  margin-right: 25px;
   margin-bottom: 20px;
+  border-radius: 20px;
 }
 .description-page .desc .desc__top__image__title {
   font-family: Gills;
@@ -505,9 +516,6 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -569,5 +577,222 @@ footer {
   .desc .desc__top__info {
     margin: 20px;
     width: 400px;
+  }
+}
+.create-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(238, 122, 83, 0.75)), to(rgba(238, 122, 83, 0.75))), url("../img/jammin-hero-recipe.jpg");
+  background-image: linear-gradient(to right, rgba(238, 122, 83, 0.75), rgba(238, 122, 83, 0.75)), url("../img/jammin-hero-recipe.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -o-object-fit: fill;
+     object-fit: fill;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+.create-page .create {
+  width: 900px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  margin-bottom: 49px;
+  background-color: white;
+  margin-top: 60px;
+  border: solid 8px #FFEA96;
+  border-radius: 30px;
+  font-family: Lato;
+  font-size: 20px;
+}
+.create-page .create h1 {
+  font-family: Gills;
+  font-size: 35px;
+  font-weight: 100;
+  position: relative;
+  top: 50px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.create-page .create .form {
+  position: relative;
+}
+.create-page .create .form .create-recipe {
+  margin: 0 auto;
+  text-align: center;
+  background-color: #FFEA96;
+  font-family: lato;
+  width: 250px;
+  height: 52px;
+  border-radius: 40px 40px;
+  line-height: 50px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  font-size: 25px;
+  margin-top: 100px;
+}
+.create-page .create .form .add {
+  height: 38px;
+  width: 38px;
+  border-radius: 20px;
+  color: black;
+  background-color: #FFEA96;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  cursor: pointer;
+  position: absolute;
+  right: 70px;
+  bottom: -60px;
+}
+.create-page .create .form .attach {
+  height: 38px;
+  width: 110px;
+  border-radius: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  cursor: pointer;
+  font-family: Caveat;
+  top: 67px;
+  right: 5px;
+  background-color: #FFEA96;
+  position: absolute;
+}
+.create-page .create .form select {
+  width: 750px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: black solid 2px;
+  height: 30px;
+  font-family: Lato;
+  font-size: 20px;
+  margin-top: 80px;
+  color: black;
+}
+.create-page .create .form textarea {
+  width: 750px;
+  background-color: transparent;
+  height: 100px;
+  font-family: Lato;
+  font-size: 20px;
+  margin-top: 80px;
+  color: black;
+}
+.create-page .create .form input {
+  width: 750px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: black solid 2px;
+  height: 30px;
+  font-family: Lato;
+  font-size: 20px;
+  margin-top: 80px;
+  color: black;
+}
+.create-page .create .form .title {
+  width: 100%;
+  position: relative;
+  top: 40px;
+  font-family: Gills;
+  left: 70px;
+}
+.create-page .create .form .general {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.create-page .create .form .ingredients {
+  margin-top: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+.create-page .create .form .instructions {
+  position: relative;
+  margin-top: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.create-page .file-upload {
+  display: block;
+  padding: 6px 12px;
+  cursor: pointer;
+  position: relative;
+  top: 98px;
+  left: 320px;
+  background-color: #FFEA96;
+  border-radius: 14px;
+}
+@media screen and (max-width: 900px) {
+  .create-page .create {
+    width: 500px;
+  }
+  .create-page .create .general input, .create-page .create .general select, .create-page .create .general textarea, .create-page .create .ingredients input, .create-page .create .ingredients select, .create-page .create .ingredients textarea, .create-page .create .instructions input, .create-page .create .instructions select, .create-page .create .instructions textarea {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .create {
+    width: 300px;
+  }
+  .create .general input, .create .general select, .create .ingredients input, .create .ingredients select, .create .instructions input, .create .instructions select {
+    width: 300px;
   }
 }
