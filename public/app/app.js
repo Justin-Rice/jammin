@@ -1,6 +1,8 @@
 var loggedIn = false;
+var _db;
 
 function initFirebase(){
+  _db = firebase.firestore();
     firebase
     .auth()
     .onAuthStateChanged(function(user){
@@ -54,10 +56,9 @@ function logInUser(){
 
 }
 function createUser(){
-    let fName = $("#fName").val();
-    let lName = $("#lName").val();
     let email = $("#email").val();
     let password = $("#pw").val();
+
 
     firebase
     .auth()
@@ -129,6 +130,69 @@ function signOut(){
 
 }
 
+function filter(){
+  $(".filters__container__section__button").click(function(e){
+    $(".recipes").html('');
+    var typeId = $(this).attr('id')
+    var value = $(this).attr('value')
+    //console.log(typeId)
+    _db
+    .collection("Recipes")
+    .where(value, "==" , typeId)
+    .get()
+    .then(function(querySnapshot){
+      querySnapshot.forEach(function(doc){
+
+        loadNewRecipes(doc);
+        
+      })
+
+  }, 
+  function(error){
+      console.log("error", error);
+  });
+    
+
+  })
+
+  $(".filters__container__section__button.reset").click(function(e){
+    $(".recipes").html('');
+      MODEL.loadRecipesPage();
+  })
+
+
+
+}
+
+function loadNewRecipes(doc){
+  $(".recipes").append(`
+               <div class="recipe">
+      <div class="recipe__head">${doc.data().recipeName}</div>
+
+      <div class="recipe__info">
+        <div class="recipe__image" onclick="loadRecipe(index)"></div>
+        <div class="recipe__info__type">Type: ${doc.data().recipeType}</div>
+        <div class="recipe__info__difficulty">Difficulty: ${doc.data().recipeSkill}</div>
+        <div class="recipe__info__prep">Prep Time: ${doc.data().recipePrep}</div>
+      </div>
+    </div>`)
+
+}
+
+function loadRecipeDescription(index){
+  MODEL.changePage("description");
+ 
+  setTimeout(function(){MODEL.loadDescription(index)}, 200);
+
+ 
+}
+
+function reset(){
+  location.reload();
+
+}
+
+
 function route(){
     let hashTag = window.location.hash;
     let pageID = hashTag.replace("#/","");
@@ -139,7 +203,9 @@ function route(){
        // console.log("what") 
            
     }else if(pageID == 'recipes'){
-        MODEL.changePage("recipes", recipeListeners);
+      MODEL.loadRecipesPage();
+        MODEL.changePage("recipes", filter);
+        
 
     }else{
         MODEL.changePage(pageID);
@@ -147,20 +213,21 @@ function route(){
     }
 }
 function recipeListeners(){
-    $(".filters__container__section__button").click(function(){
-        if($(this).hasClass("--selected")){
-            $(this).removeClass("--selected");
-            $(this).addClass("--not-selected");
+    // $(".filters__container__section__button").click(function(){
+    //   var id = $(this).attr('id')
+    //     if($(this).hasClass("--selected") ){
+    //         $(this).removeClass("--selected");
+    //         $(this).addClass("--not-selected");
 
 
-            console.log("yes")
+    //         console.log("yes")
 
-        }else{
-        $(this).addClass("--selected");
-        $(this).removeClass("--not-selected");
-        }
+    //     }else{
+    //     $(this).addClass("--selected");
+    //     $(this).removeClass("--not-selected");
+    //     }
        
-    });
+    // });
 }
 function recipeReset(){
 

@@ -1,0 +1,163 @@
+.description-page{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+     min-height: calc(100vh - 50px);
+     background-image: linear-gradient(
+       to right,  
+         rgba(238, 122, 83, 0.75),
+         rgba(238, 122, 83, 0.75)
+       ),
+     url("../img/jammin-hero-recipe.jpg");
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     object-fit: fill;
+     background-attachment: fixed;
+     overflow: hidden;
+
+     .desc{
+         margin-top: 80px;
+         margin-bottom: 80px;
+
+         margin-left: 50px;
+         margin-right: 50px;
+         background-color: white;
+         border: solid  6px $yellow;
+         border-radius: 20px;
+        //max-width: 900px;
+       .desc__top{ display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        &__image{
+            background-color: $red;
+            height:300px ;
+            width: 400px;
+            margin-top: 60px;
+            margin-left: 25px;
+            margin-bottom: 20px;
+
+            &__title{
+                font-family: Gills;
+                font-size: 25px;
+                position: relative;
+                top: -50px;
+                //left: 5px;
+            }
+
+            
+        }   
+        &__info{
+            //background-color: seashell;
+            //height:300px ;
+            width: 350px;
+            margin-top: 70px;
+            margin-bottom: 20px;
+
+            margin-left: 5px;
+            font-family: Gills;
+
+            &__detail{
+                margin-top: 15px;
+
+            }
+
+            .fill{
+                color: #773344;
+                text-align: right;
+                position: relative;
+               
+            }
+            p{
+                margin-top: 20px;
+                font-family: Lato;
+                color: #773344;
+
+            }
+
+            
+        }   
+    }
+    .desc__bottom{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+    font-family: Lato;
+    font-size: 16px;
+    flex-wrap: wrap;
+    h1{
+        font-family: Gills;
+    }
+    &__ingred{
+       
+        width: 300px;
+        //margin-right: 90px;
+        //background-color: red;
+        ul{
+            margin-left: 15px;
+        }
+        margin-bottom: 20px;
+        
+    }
+
+    &__instruct{
+        width: 300px;
+        //background-color:green;
+
+        ol{
+            margin-left: 15px;
+        }
+        margin-bottom: 20px;
+
+
+
+    }
+    }
+    .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 120px;
+        .button{
+                    margin-bottom: 15px;
+                    text-align: center;
+                    background-color: $yellow;
+                    font-family: Lato;
+                    width: 110px;
+                    height: 35px;
+                   border-radius: 40px 40px;
+                   line-height: 35px;
+                   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;  
+                   font-size: 18px;
+        }
+    }
+    
+    }
+    
+         
+
+     
+ 
+}
+@media screen and (max-width: 600px) {
+
+    .desc{
+        .desc__top{
+            &__image{
+                margin: 20px;
+            }
+            &__info{
+                margin: 20px;
+                width: 400px;
+            }
+        }
+
+    }
+}

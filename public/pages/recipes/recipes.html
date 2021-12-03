@@ -4,58 +4,78 @@
       <div class="filters__container__head">Filters:</div>
       <div class="filters__container__section">
         <div class="filters__container__section__head">Type:</div>
-        <div class="filters__container__section__button">General</div>
-        <div class="filters__container__section__button">Baking</div>
-        <div class="filters__container__section__button">Grilling</div>
-        <div class="filters__container__section__button">All</div>
+        <div
+          value="recipeType"
+          id="General"
+          class="filters__container__section__button"
+        >
+          General
+        </div>
+        <div
+          value="recipeType"
+          id="Baking"
+          class="filters__container__section__button"
+        >
+          Baking
+        </div>
+        <div
+          value="recipeType"
+          id="Grilling"
+          class="filters__container__section__button"
+        >
+          Grilling
+        </div>
       </div>
       <div class="filters__container__section">
         <div class="filters__container__section__head">Skill:</div>
-        <div class="filters__container__section__button">Simple</div>
-        <div class="filters__container__section__button">Advanced</div>
-        <div class="filters__container__section__button">Professional</div>
+        <div
+          value="recipeSkill"
+          id="Simple"
+          class="filters__container__section__button"
+        >
+          Simple
+        </div>
+        <div
+          value="recipeSkill"
+          id="Advanced"
+          class="filters__container__section__button"
+        >
+          Advanced
+        </div>
+        <div
+          value="recipeSkill"
+          id="Professional"
+          class="filters__container__section__button"
+        >
+          Professional
+        </div>
       </div>
       <div class="filters__container__section">
         <div class="filters__container__section__head">Time:</div>
-        <div class="filters__container__section__button">< 1 Hour</div>
-        <div class="filters__container__section__button">> 1 hour</div>
+        <div
+          value="recipePrep"
+          id="< 1 Hour"
+          class="filters__container__section__button"
+        >
+          < 1 Hour
+        </div>
+        <div
+          value="recipePrep"
+          id="> 1 Hour"
+          class="filters__container__section__button"
+        >
+          > 1 hour
+        </div>
       </div>
       <div class="filters__container__section">
-        <div class="filters__container__section__button --submit">Search</div>
-        <div class="filters__container__section__button --submit">Reset</div>
+        <div
+          onclick="reset()"
+          class="filters__container__section__button reset --submit"
+        >
+          Reset
+        </div>
       </div>
     </div>
   </div>
-  <div class="recipes">
-    <div class="recipe">
-      <div class="recipe__head">Meat Loaf Dinner</div>
-
-      <div class="recipe__info">
-        <div class="recipe__image" onclick="loadRecipe(index)"></div>
-        <div class="recipe__info__type">Type:</div>
-        <div class="recipe__info__difficulty">Difficulty:</div>
-        <div class="recipe__info__prep">Prep Time:</div>
-      </div>
-    </div>
-    <div class="recipe">
-      <div class="recipe__head">Meat Loaf Dinner</div>
-
-      <div class="recipe__info">
-        <div class="recipe__image" onclick="loadRecipe(index)"></div>
-        <div class="recipe__info__type">Type:</div>
-        <div class="recipe__info__difficulty">Difficulty:</div>
-        <div class="recipe__info__prep">Prep Time:</div>
-      </div>
-    </div>
-    <div class="recipe">
-      <div class="recipe__head">Meat Loaf Dinner</div>
-
-      <div class="recipe__info">
-        <div class="recipe__image" onclick="loadRecipe(index)"></div>
-        <div class="recipe__info__type">Type:</div>
-        <div class="recipe__info__difficulty">Difficulty:</div>
-        <div class="recipe__info__prep">Prep Time:</div>
-      </div>
-    </div>
-  </div>
+  <div class="recipes"></div>
 </div>
