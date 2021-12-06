@@ -2,6 +2,21 @@ var loggedIn = false;
 var _db;
 var ingredNum = 2;
 var instructNum = 2;
+var toastMixin = Swal.mixin({
+  toast: true,
+  icon: 'success',
+  background: "#ffd666" ,
+  title: 'General Title',
+  animation: false,
+  position: 'top-right',
+  showConfirmButton: false,
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+});
 
 
 
@@ -127,9 +142,13 @@ function signOut(){
             confirmButtonColor: '#A7E8BD'
 
           })
+          toastMixin.fire({
+            title: 'Logged out',
+          });
           firebase.auth().signOut().then(() => {
-            MODEL.changePage('home');
-          }).catch((error) => {
+            MODEL.changePage("home", homeComp);     
+            MODEL.loadCar();     
+               }).catch((error) => {
             // An error happened.
           });
           
@@ -181,8 +200,14 @@ function deleteRecipe(docID,  imageDate, imageName,){
   
   _db.collection("Recipes").doc(docID).delete().then(() => {  
     del.delete().then(() => {
-     //  MODEL.changePage('recipes', MODEL.loadRecipesPage);
-     location.reload();
+      Swal.fire({
+        icon: 'success',
+        text: "Recipe deleted",
+        background: "#ffd666" ,
+        confirmButtonColor: '#A7E8BD'
+      })
+      MODEL.loadRecipesPage();
+      MODEL.changePage("recipes", filter);
       }).catch((error) => {
       // Uh-oh, an error occurred!
       });
@@ -272,9 +297,13 @@ _db = firebase.firestore();
             recipePrep : time,
     })
   .then(() => {
-      console.log("Document successfully updated!");
-  })
-  .catch((error) => {
+    toastMixin.fire({
+      title: 'Recipe Changed',
+    }); 
+    MODEL.loadRecipesPage();
+    MODEL.changePage("recipes", filter);
+
+   }).catch((error) => {
       // The document probably doesn't exist.
       console.error("Error updating document: ", error);
   });
@@ -284,7 +313,10 @@ _db = firebase.firestore();
 
   
 }else{
-  console.log("missing image");
+    toastMixin.fire({
+      title: 'New Image Missing',
+      icon: 'error',
+    }); 
 }
 
 }
@@ -372,15 +404,26 @@ let ins = [];
       .then(function(doc){
      
       //add sweet alert to confirm creation
+      Swal.fire({
+        icon: 'success',
+        text: "Recipe Created",
+        background: "#ffd666" ,
+        confirmButtonColor: '#A7E8BD'
       })
+      MODEL.loadRecipesPage();
+      MODEL.changePage("recipes", filter);
+      })
+      
   });
   
 
 
   
   }else{
-    console.log("missing image");
-  }
+    toastMixin.fire({
+      title: 'Image Missing',
+      icon: 'error',
+    });   }
 
 }
 
@@ -389,7 +432,8 @@ function filter(){
     $(".recipes").html('');
     var typeId = $(this).attr('id')
     var value = $(this).attr('value')
-    //console.log(typeId)
+    console.log(typeId);
+    console.log(value);
     _db
     .collection("Recipes")
     .where(value, "==" , typeId)
@@ -441,17 +485,11 @@ function loadNewRecipes(doc){
 }
 
 function loadRecipeDescription(index){
-  MODEL.changePage("description");
- 
-  setTimeout(function(){MODEL.loadDescription(index)}, 200);
-
- 
-}
-
-function reset(){
-  location.reload();
+  MODEL.changePage("description", MODEL.loadDescription(index));
 
 }
+
+
 function addIngred(e){
   $(".ingredients").append(`
   <input class="addIng" id="ind${ingredNum}" type="text" placeholder="Ingredient #${ingredNum}" />
@@ -470,6 +508,17 @@ function addInstruct(e){
 
 }
 
+function homeComp(){
+    $('.slide').not('.slick-initialized').slick({
+      dots: true,
+      infinite: true,
+      cssEase: 'linear',
+      fade: true,
+      autoplay: true,
+      autoplaySpeed: 2500,
+      arrows	:false
+      });
+}
 
 function route(){
     let hashTag = window.location.hash;
@@ -477,16 +526,8 @@ function route(){
     //pageID holds page name
 
     if(pageID == 'home' || !pageID){
-        MODEL.changePage("home");   
-        setTimeout(function(){
-          $('.your-class').not('.slick-initialized').slick({
-            dots: true,
-            infinite: true,
-            //cssEase: 'linear',
-            swipe: false,
-        });
-        console.log('done')
-    },100); 
+        MODEL.changePage("home", homeComp);   
+       
           //console.log(pageID)
 
           MODEL.loadCar();

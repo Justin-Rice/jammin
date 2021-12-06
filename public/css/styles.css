@@ -6,6 +6,8 @@
 }
 
 html, body {
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
   height: 100%;
 }
 
@@ -35,7 +37,7 @@ nav .logo {
 }
 nav .links {
   position: absolute;
-  right: 20px;
+  right: 40px;
   top: 15px;
   min-width: 350px;
   display: -webkit-box;
@@ -87,7 +89,7 @@ footer {
   overflow: hidden;
   margin: 0 auto;
   width: 100%;
-  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(238, 122, 83, 0.75)), to(rgba(238, 122, 83, 0.75))), url("../img/jammin-home-hero.jpg");
   background-image: linear-gradient(to right, rgba(238, 122, 83, 0.75), rgba(238, 122, 83, 0.75)), url("../img/jammin-home-hero.jpg");
   background-repeat: no-repeat;
@@ -97,27 +99,41 @@ footer {
      object-fit: fill;
 }
 .home .content {
-  height: 600px;
-  width: 600px;
+  height: 540px;
+  max-width: 430px;
   margin: 50px auto;
   background-color: white;
   border-radius: 40px;
   border: solid #FFEA96 8px;
+  font-family: lato;
+  padding-bottom: 80px;
 }
-.home .content .your-class {
-  width: 450px;
-  height: 350px;
+.home .content .title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 30px;
+}
+.home .content .about {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 300px;
+}
+.home .content .slide {
+  width: 370px;
+  height: 250px;
   margin: 0 auto;
   margin-top: 40px;
   border-radius: 40px;
 }
-.home .content .your-class img {
-  width: 450px;
-  height: 350px;
+.home .content .slide img {
+  width: 370px;
+  height: 250px;
   margin: 0 auto;
-  border-radius: 40px;
+  border-radius: 15px;
 }
-.home .content .your-class .scroll {
+.home .content .slide .scroll {
   height: 100%;
   width: 100%;
 }
@@ -326,7 +342,7 @@ footer {
 }
 .recipes-page .filters {
   margin-top: 40px;
-  width: 140px;
+  width: 150px;
   background-color: #EE5353;
   border: solid 4px #FFEA96;
   border-left: none;
@@ -368,13 +384,13 @@ footer {
   text-align: center;
   background-color: #FFEA96;
   font-family: Lato;
-  width: 110px;
+  width: 100px;
   height: 35px;
   border-radius: 40px 40px;
   line-height: 35px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
           box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .recipes-page .filters__container__section__button.--submit {
   width: 110px;

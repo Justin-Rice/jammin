@@ -24,7 +24,7 @@ var MODEL = (function(){
       <div class="recipe__head">${doc.data().recipeName}</div>
 
       <div class="recipe__info">
-        <a href ="#/recipes"><div class="recipe__image" style=
+        <a href ="#/description"><div class="recipe__image" style=
         "background-image:
         url(${doc.data().recipeImageURL});
         background-repeat: no-repeat;
@@ -165,7 +165,7 @@ var MODEL = (function(){
                  
                      `)                       
 
-                 console.log("no")
+                 //console.log("no")
                 }
                 let ingredLength = doc.data().recipeIngred.length
                 let insLength = doc.data().recipeIns.length
@@ -285,7 +285,7 @@ var MODEL = (function(){
          ></img>
          `
 
-        $(".your-class").slick("slickAdd", slide);
+        $(".slide").slick("slickAdd", slide);
         //console.log(1)
 
 
