@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to Firebase Hosting</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="lib/slick/slick.css" />
+
+    <link rel="stylesheet" type="text/css" href="lib/slick/slick-theme.css" />
   </head>
   <body>
     <nav>
@@ -12,14 +15,14 @@
       <div class="links">
         <a href="#/home">Home</a>
         <a href="#/recipes">Recipes</a>
+        <div id="create"><a href="#/create">Create</a></div>
         <div id="logOut"><a onclick="signOut()">Logout</a></div>
         <div id="logIn"><a href="#/login">Login</a></div>
-        <div id="create"><a href="#/create">Create</a></div>
       </div>
     </nav>
+
     <div id="app"></div>
     <footer>Copyright © 2021 Jamm'in</footer>
-
     <script defer src="/__/firebase/9.5.0/firebase-app-compat.js"></script>
     <script defer src="/__/firebase/9.5.0/firebase-auth-compat.js"></script>
     <script defer src="/__/firebase/9.5.0/firebase-database-compat.js"></script>
@@ -51,7 +54,9 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="lib/jquery-3.6.0.min.js"></script>
+    <script src="lib/slick/slick.min.js"></script>
     <script src="app/model.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/custom.js"></script>
   </body>
 </html>

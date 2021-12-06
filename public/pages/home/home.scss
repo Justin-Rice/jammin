@@ -18,13 +18,42 @@
     object-fit: fill;
 
     .content{
-        height: 700px;
-        width: 700px;
+        height: 600px;
+        width: 600px;
         margin: 50px auto;
         background-color: white;
         //margin-top: 50px;
         border-radius: 40px;
         border: solid $yellow 8px;
 
+        
+
+          .your-class{
+        
+              width: 450px;
+              height: 350px;
+             // background-color: $red;
+              margin: 0 auto;
+              margin-top: 40px;
+              border-radius: 40px;
+              img{
+                width: 450px;
+              height: 350px;
+              //background-color: $red;
+              margin: 0 auto;
+              //margin-top: 40px;
+              border-radius: 40px;
+
+              }
+              .scroll{
+                height: 100%;
+                width: 100%;
+              }
+        
+          
+        }
+
     }
-}
+  }
+
+   

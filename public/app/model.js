@@ -103,10 +103,20 @@ var MODEL = (function(){
                  </div>
                </div>
                <div class="buttons">
-                 <div onclick="editRecipe()" class="button">Edit</div>
-                 <div onclick="deleteRecipe()" class="button">Delete</div>
+                 <div id="edit" class="button">Edit</div>
+                 <div id="delete" class="button">Delete</div>
                </div>  `)                 
-                 
+              console.log( doc.id)
+
+              var del = document.getElementById("delete");
+              del.addEventListener("click", function() {
+	            deleteRecipe(doc.id, doc.data().recipeNum, doc.data().recipeImageName );
+              }, false);
+
+              var edit = document.getElementById("edit");
+              edit.addEventListener("click", function() {
+	            loadEditRecipe(doc.id, doc.data().recipeNum, doc.data().recipeImageName );
+              }, false);
                 }else{
                  
                     $(".desc").append(`
@@ -180,10 +190,117 @@ var MODEL = (function(){
         function(error){
             console.log("error", error);
         });
+
+        
     }
+
+    var _loadEdit = function(docID){
+     var editData = _db.collection("Recipes").doc(docID);
+
+     editData.get().then((doc) => {
+      if (doc.exists) {
+        
+        $("#erecipe-name").val(doc.data().recipeName);
+        $("#erecipe-type").val(doc.data().recipeType);
+        $("#erecipe-skill").val(doc.data().recipeSkill);
+        $("#erecipe-time").val(doc.data().recipePrep)
+        $("#erecipe-desc").val(doc.data().recipeDesc);
+
+
+        let ingredLength = doc.data().recipeIngred.length
+        let ingredIndex =0;
+        let insLength = doc.data().recipeIns.length
+        let instIndex =0;
+        
+        console.log(instIndex)
+
+        for(let count = 2; count < insLength+1; count++ ){
+          $(".instructions").append(`
+          <input class="addIns" id="ins${count}" type="text" placeholder="Instruction #${count}" />
+
+          `)
+        }
+        for(let x = 1; x < insLength+1; x++ ){
+        $("#ins"+x).val(doc.data().recipeIns[instIndex]);
+        instIndex ++;
+
+        }
+        for(let count = 2; count < ingredLength+1; count++ ){
+          $(".ingredients").append(`
+          <input class="addIng" id="ind${count}" type="text" placeholder="Ingredient #${count}" />
+
+          `)
+        }
+        for(let x = 1; x < ingredLength+1; x++ ){
+        $("#ind"+x).val(doc.data().recipeIngred[ingredIndex]);
+        ingredIndex ++;
+
+        }
+
+          console.log("Document data:", doc.data());
+          
+      $(".form").append(`<div id="edit" class="edit-recipe"> Edit Recipe</div>
+      `); 
+      
+      var edit = document.getElementById("edit");
+      edit.addEventListener("click", function() {
+      submitEditRecipe(doc.id, doc.data().recipeNum, doc.data().recipeImageName );
+      }, false);
+      } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+      }
+      }).catch((error) => {
+      console.log("Error getting document:", error);
+     });
+    
+
+
+       
+     
+  }
+
+    var _loadCar = function(){
+      //var editData = _db.collection("Recipes").where("recipeNum" ,"==", index);
+    
+      
+      _db.collection("Recipes").limit(4).get().then(function(querySnapshot){
+        querySnapshot.forEach(function(doc){
+        //   <a href ="#/description"><div class="scroll" style=
+        // "background-image:
+        // url(${doc.data().recipeImageURL});
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-size: cover;
+        // object-fit: fill;" 
+        // onclick="loadRecipeDescription(${doc.data().recipeNum})"></div></a>
+
+        // <img src=${doc.data().recipeImageURL}
+        // onclick="loadRecipeDescription(${doc.data().recipeNum})"
+        // ></img>
+
+        var slide = 
+        `   <img src=${doc.data().recipeImageURL}
+        onclick="loadRecipeDescription(${doc.data().recipeNum})"
+         ></img>
+         `
+
+        $(".your-class").slick("slickAdd", slide);
+        //console.log(1)
+
+
+      })
+      }).then((querySnapshot)=>{
+
+      })
+
+    }
+      
 
     
     return {
+        loadCar : _loadCar,
+        loadEdit : _loadEdit,
         changePage : _changePage,
         loadRecipesPage: _loadRecipesPage,
         loadDescription: _loadDescription

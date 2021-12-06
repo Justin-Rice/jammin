@@ -8,5 +8,8 @@
     "deploy": "firebase deploy --except functions"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "slick-carousel": "^1.8.1"
+  }
 }

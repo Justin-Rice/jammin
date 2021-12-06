@@ -3,6 +3,8 @@ var _db;
 var ingredNum = 2;
 var instructNum = 2;
 
+
+
 function initFirebase(){
   _db = firebase.firestore();
     firebase
@@ -171,7 +173,139 @@ signInGoogle = () =>{
   var provider = new firebase.auth.GoogleAuthProvider();
   signInWithProvider(provider);
 }
+function deleteRecipe(docID,  imageDate, imageName,){
+   var imageRef = imageDate + imageName;
+   let storageRef = firebase.storage().ref();
 
+   var del = storageRef.child("food/" + imageRef);
+  
+  _db.collection("Recipes").doc(docID).delete().then(() => {  
+    del.delete().then(() => {
+     //  MODEL.changePage('recipes', MODEL.loadRecipesPage);
+     location.reload();
+      }).catch((error) => {
+      // Uh-oh, an error occurred!
+      });
+    
+    
+}).catch((error) => {
+    console.error("Error removing document: ", error);
+});
+}
+
+function submitEditRecipe(docID,  imageDate, imageName,){
+  console.log(docID, imageName);
+  let ingred = [];
+  let ins = [];
+
+  
+
+
+  var imageRef = imageDate + imageName;
+  let imageFile = $("#ecreatefile").prop("files")[0];
+
+  if(imageFile !=null){
+
+  const metadata = {contentType: imageFile.type };
+  let name = $("#erecipe-name").val();
+  let date = Date.parse(new Date());
+  let type = $("#erecipe-type").val();
+  let skill = $("#erecipe-skill").val();
+  let time = $("#erecipe-time").val();
+  let desc = $("#erecipe-desc").val();
+
+  $(".addIng").map(function(){
+    ingred.push($(this).val())
+    // console.log($(this).val());
+  })
+
+  $(".addIns").map(function(){
+    ins.push($(this).val())
+   // console.log($(this).val());
+
+  })
+
+
+
+
+
+
+  let storageRef = firebase.storage().ref();
+  var del = storageRef.child("food/" + imageRef);
+  
+    del.delete().then(() => {
+     //  MODEL.changePage('recipes', MODEL.loadRecipesPage);
+     //location.reload();
+      }).catch((error) => {
+      // Uh-oh, an error occurred!
+      });
+    
+    
+
+
+
+_db = firebase.firestore();
+    var imageInfo = imageFile.name 
+    const task = storageRef 
+    .child("food/" + date + imageFile.name)
+    .put(imageFile, metadata)
+    task
+    .then((snapshot)=>snapshot.ref.getDownloadURL())
+    .then((url)=>{
+      
+      
+      console.log(url);
+      console.log(imageInfo);
+      //updating to add new data
+  var ref = _db.collection("Recipes").doc(docID);
+  // Set the "capital" field of the city 'DC'
+    return ref.update({
+        recipeDesc: desc,
+            recipeIngred : ingred,
+            recipeIns : ins,
+            recipeImageURL: url,
+            recipeImageName: imageInfo,
+            recipeNum: date,
+            recipeName: name,
+            recipeType: type,
+            recipeSkill : skill,
+            recipePrep : time,
+    })
+  .then(() => {
+      console.log("Document successfully updated!");
+  })
+  .catch((error) => {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+  });
+  });
+  
+
+
+  
+}else{
+  console.log("missing image");
+}
+
+}
+
+
+function loadEditRecipe(docID){
+  // var imageRef = imageDate + imageName;
+  // let storageRef = firebase.storage().ref();
+  // var del = storageRef.child("food/" + imageRef);
+  // del.delete().then(() => {
+
+  //   location.reload();
+  //    }).catch((error) => {
+  //    });
+
+  MODEL.changePage("edit");
+  setTimeout(function(){MODEL.loadEdit(docID)}, 300);
+
+
+
+}
 function createRecipe(){
   //var x = document.getElementById("createImg");
   //var i = x.selectedIndex;
@@ -205,31 +339,39 @@ let ins = [];
     console.log("booyah");
 
     _db = firebase.firestore();
+    var imageInfo = imageFile.name 
     const task = storageRef 
     .child("food/" + date + imageFile.name)
     .put(imageFile, metadata)
     task
     .then((snapshot)=>snapshot.ref.getDownloadURL())
     .then((url)=>{
+      
       let userObj = {
           recipeDesc: desc,
           recipeIngred : ingred,
           recipeIns : ins,
           recipeImageURL: url,
+          recipeImageName: imageInfo,
           recipeNum: date,
           recipeName: name,
           recipeType: type,
           recipeSkill : skill,
           recipePrep : time,
+        
       }
       console.log(url);
+      console.log(imageInfo);
+      // console.log(metadata)
+      // console.log(imageFile)
+      // console.log(imageFile.name)
       _db
       .collection("Recipes")
       .doc()
       .set(userObj)
       .then(function(doc){
      
-
+      //add sweet alert to confirm creation
       })
   });
   
@@ -282,7 +424,14 @@ function loadNewRecipes(doc){
       <div class="recipe__head">${doc.data().recipeName}</div>
 
       <div class="recipe__info">
-        <div class="recipe__image" onclick="loadRecipe(index)"></div>
+      <a href ="#/recipes"><div class="recipe__image" style=
+      "background-image:
+      url(${doc.data().recipeImageURL});
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      object-fit: fill;" 
+      onclick="loadRecipeDescription(${doc.data().recipeNum})"></div></a>
         <div class="recipe__info__type">Type: ${doc.data().recipeType}</div>
         <div class="recipe__info__difficulty">Difficulty: ${doc.data().recipeSkill}</div>
         <div class="recipe__info__prep">Prep Time: ${doc.data().recipePrep}</div>
@@ -327,59 +476,86 @@ function route(){
     let pageID = hashTag.replace("#/","");
     //pageID holds page name
 
-    if(!pageID){
+    if(pageID == 'home' || !pageID){
         MODEL.changePage("home");   
-       // console.log("what") 
+        setTimeout(function(){
+          $('.your-class').not('.slick-initialized').slick({
+            dots: true,
+            infinite: true,
+            //cssEase: 'linear',
+            swipe: false,
+        });
+        console.log('done')
+    },100); 
+          //console.log(pageID)
+
+          MODEL.loadCar();
            
     }else if(pageID == 'recipes'){
       MODEL.loadRecipesPage();
         MODEL.changePage("recipes", filter);
         
 
+    
+     // caro(MODEL.loadCar)
+        
     }else{
-        MODEL.changePage(pageID);
-        //console.log(pageID)
+      MODEL.changePage(pageID);
+
+
     }
 }
-function recipeListeners(){
-    // $(".filters__container__section__button").click(function(){
-    //   var id = $(this).attr('id')
-    //     if($(this).hasClass("--selected") ){
-    //         $(this).removeClass("--selected");
-    //         $(this).addClass("--not-selected");
 
 
-    //         console.log("yes")
-
-    //     }else{
-    //     $(this).addClass("--selected");
-    //     $(this).removeClass("--not-selected");
-    //     }
-       
-    // });
-}
-function recipeReset(){
-
-}
  
 function initlisteners(){
     $(window).on("hashchange", route);
-   
+    //$(window).on("hashchange", caro);
+  //   setTimeout(function(){
+  //     $('.your-class').slick({
+  //       dots: true,
+  //       //infinite: true,
+  //       cssEase: 'linear',
+  //       swipe: false,
+  //   });
+  // },1); 
+    
     
     route();
+}
+
+function caro (callback){
+  console.log('e')
+  setTimeout(function(){
+    $('.your-class').slick({
+      dots: true,
+      //infinite: true,
+      cssEase: 'linear',
+      swipe: false,
+  });
+},1); 
+
+if(callback){
+  setTimeout(function(){
+    callback();
+  },1); 
+  console.log("ye")
+}
 }
 
 
 $(document).ready(function(){
     try{
         initFirebase();
-    
-        //route();
        initlisteners();
-       // underlineActivePage();
-      //  browseRecipes();
-
-        
+    //    setTimeout(function(){
+    //     $('.your-class').slick({
+    //       dots: true,
+    //       //infinite: true,
+    //       cssEase: 'linear',
+    //       swipe: false,
+    //   });
+    // } , 0); 
         let app = firebase.app();
     }catch{
         console.log("gwa");
