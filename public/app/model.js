@@ -59,7 +59,7 @@ var MODEL = (function(){
                 //console.log(index)
                 
                 if(loggedIn){
-                 console.log("yes")
+                 //console.log("yes")
                  $(".desc").append(`
                  <div class="desc__top">
                  <div class="desc__top__image" style=
@@ -106,7 +106,7 @@ var MODEL = (function(){
                  <div id="edit" class="button">Edit</div>
                  <div id="delete" class="button">Delete</div>
                </div>  `)                 
-              console.log( doc.id)
+              //console.log( doc.id)
 
               var del = document.getElementById("delete");
               del.addEventListener("click", function() {
@@ -212,7 +212,7 @@ var MODEL = (function(){
         let insLength = doc.data().recipeIns.length
         let instIndex =0;
         
-        console.log(instIndex)
+        //console.log(instIndex)
 
         for(let count = 2; count < insLength+1; count++ ){
           $(".instructions").append(`
@@ -237,7 +237,7 @@ var MODEL = (function(){
 
         }
 
-          console.log("Document data:", doc.data());
+        //  console.log("Document data:", doc.data());
           
       $(".form").append(`<div id="edit" class="edit-recipe"> Edit Recipe</div>
       `); 

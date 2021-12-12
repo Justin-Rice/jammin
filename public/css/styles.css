@@ -341,7 +341,11 @@ footer {
   background-attachment: fixed;
 }
 .recipes-page .filters {
-  margin-top: 40px;
+  position: relative;
+  display: block;
+  top: 30px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   width: 150px;
   background-color: #EE5353;
   border: solid 4px #FFEA96;
@@ -419,7 +423,6 @@ footer {
 }
 .recipes-page .recipes .recipe {
   margin-top: 50px;
-  height: 370px;
   width: 320px;
   background-color: #FFEA96;
   border-radius: 30px;
@@ -441,7 +444,6 @@ footer {
   overflow: hidden;
 }
 .recipes-page .recipes .recipe__info {
-  height: 400px;
   background-color: white;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
@@ -522,7 +524,7 @@ footer {
   font-family: Gills;
   font-size: 25px;
   position: relative;
-  top: -50px;
+  top: -60px;
 }
 .description-page .desc .desc__top__info {
   width: 350px;

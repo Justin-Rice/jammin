@@ -7,7 +7,6 @@ var toastMixin = Swal.mixin({
   icon: 'success',
   background: "#ffd666" ,
   title: 'General Title',
-  animation: false,
   position: 'top-right',
   showConfirmButton: false,
   timer: 2000,
@@ -219,7 +218,7 @@ function deleteRecipe(docID,  imageDate, imageName,){
 }
 
 function submitEditRecipe(docID,  imageDate, imageName,){
-  console.log(docID, imageName);
+ // console.log(docID, imageName);
   let ingred = [];
   let ins = [];
 
@@ -279,8 +278,8 @@ _db = firebase.firestore();
     .then((url)=>{
       
       
-      console.log(url);
-      console.log(imageInfo);
+      //console.log(url);
+      //console.log(imageInfo);
       //updating to add new data
   var ref = _db.collection("Recipes").doc(docID);
   // Set the "capital" field of the city 'DC'
@@ -332,8 +331,8 @@ function loadEditRecipe(docID){
   //    }).catch((error) => {
   //    });
 
-  MODEL.changePage("edit");
-  setTimeout(function(){MODEL.loadEdit(docID)}, 300);
+  MODEL.changePage("edit",MODEL.loadEdit(docID));
+  // setTimeout(function(){MODEL.loadEdit(docID)}, 300);
 
 
 
@@ -367,8 +366,8 @@ let ins = [];
   
     })
      
-    console.log(ingred, ins);
-    console.log("booyah");
+    //console.log(ingred, ins);
+    //console.log("booyah");
 
     _db = firebase.firestore();
     var imageInfo = imageFile.name 
@@ -392,8 +391,8 @@ let ins = [];
           recipePrep : time,
         
       }
-      console.log(url);
-      console.log(imageInfo);
+     // console.log(url);
+     // console.log(imageInfo);
       // console.log(metadata)
       // console.log(imageFile)
       // console.log(imageFile.name)
@@ -403,15 +402,14 @@ let ins = [];
       .set(userObj)
       .then(function(doc){
      
-      //add sweet alert to confirm creation
-      Swal.fire({
-        icon: 'success',
-        text: "Recipe Created",
-        background: "#ffd666" ,
-        confirmButtonColor: '#A7E8BD'
-      })
+        toastMixin.fire({
+          title: 'Recipe Created',
+        }); 
       MODEL.loadRecipesPage();
-      MODEL.changePage("recipes", filter);
+      MODEL.changePage("recipes", filter);  
+     // location.reload(); 
+
+         
       })
       
   });
@@ -426,14 +424,18 @@ let ins = [];
     });   }
 
 }
+function reset(){
+  MODEL.loadRecipesPage("recipes", filter);
+
+}
 
 function filter(){
   $(".filters__container__section__button").click(function(e){
     $(".recipes").html('');
     var typeId = $(this).attr('id')
     var value = $(this).attr('value')
-    console.log(typeId);
-    console.log(value);
+    // console.log(typeId);
+    // console.log(value);
     _db
     .collection("Recipes")
     .where(value, "==" , typeId)
@@ -453,10 +455,10 @@ function filter(){
 
   })
 
-  $(".filters__container__section__button.reset").click(function(e){
-    $(".recipes").html('');
-      MODEL.loadRecipesPage();
-  })
+  // $(".filters__container__section__button .reset").click(function(e){
+  //   $(".recipes").html('');
+  //     MODEL.loadRecipesPage("recipes", filter);
+  // })
 
 
 
@@ -510,7 +512,7 @@ function addInstruct(e){
 
 function homeComp(){
     $('.slide').not('.slick-initialized').slick({
-      dots: true,
+      //dots: true,
       infinite: true,
       cssEase: 'linear',
       fade: true,
@@ -538,7 +540,6 @@ function route(){
         
 
     
-     // caro(MODEL.loadCar)
         
     }else{
       MODEL.changePage(pageID);
@@ -551,52 +552,20 @@ function route(){
  
 function initlisteners(){
     $(window).on("hashchange", route);
-    //$(window).on("hashchange", caro);
-  //   setTimeout(function(){
-  //     $('.your-class').slick({
-  //       dots: true,
-  //       //infinite: true,
-  //       cssEase: 'linear',
-  //       swipe: false,
-  //   });
-  // },1); 
+    
     
     
     route();
 }
 
-function caro (callback){
-  console.log('e')
-  setTimeout(function(){
-    $('.your-class').slick({
-      dots: true,
-      //infinite: true,
-      cssEase: 'linear',
-      swipe: false,
-  });
-},1); 
 
-if(callback){
-  setTimeout(function(){
-    callback();
-  },1); 
-  console.log("ye")
-}
-}
 
 
 $(document).ready(function(){
     try{
         initFirebase();
        initlisteners();
-    //    setTimeout(function(){
-    //     $('.your-class').slick({
-    //       dots: true,
-    //       //infinite: true,
-    //       cssEase: 'linear',
-    //       swipe: false,
-    //   });
-    // } , 0); 
+  
         let app = firebase.app();
     }catch{
         console.log("gwa");
