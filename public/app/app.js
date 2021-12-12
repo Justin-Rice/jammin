@@ -434,11 +434,10 @@ function filter(){
     $(".recipes").html('');
     var typeId = $(this).attr('id')
     var value = $(this).attr('value')
-    // console.log(typeId);
-    // console.log(value);
+    if(value != null){
     _db
     .collection("Recipes")
-    .where(value, "==" , typeId)
+    .where(value, "==" , typeId || null)
     .get()
     .then(function(querySnapshot){
       querySnapshot.forEach(function(doc){
@@ -452,14 +451,16 @@ function filter(){
       console.log("error", error);
   });
     
+}else{
+  $(".filters__container__section__buttons").click(function(e){
 
   })
+}
+  })
 
-  // $(".filters__container__section__button .reset").click(function(e){
-  //   $(".recipes").html('');
-  //     MODEL.loadRecipesPage("recipes", filter);
-  // })
+  
 
+ 
 
 
 }

@@ -405,6 +405,29 @@ footer {
 .recipes-page .filters__container__section__button.--not-selected {
   background-color: #FFEA96;
 }
+.recipes-page .filters__container__section__buttons {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  background-color: #FFEA96;
+  font-family: Lato;
+  width: 100px;
+  height: 35px;
+  border-radius: 40px 40px;
+  line-height: 35px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  font-size: 16px;
+}
+.recipes-page .filters__container__section__buttons.--submit {
+  width: 110px;
+}
+.recipes-page .filters__container__section__buttons.--selected {
+  background-color: blue;
+}
+.recipes-page .filters__container__section__buttons.--not-selected {
+  background-color: #FFEA96;
+}
 .recipes-page .recipes {
   width: 1100px;
   margin: 0 auto;
